@@ -1,0 +1,9 @@
+{
+    "path" : "~/_data/adaptability",
+    "sortOrder" : [
+        {
+            "ascending" : true,
+            "columnIndex" : 2
+        }
+    ]
+}
