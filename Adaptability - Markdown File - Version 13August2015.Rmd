@@ -3,18 +3,15 @@ title: "Adaptability Study - Overview of Data Analysis"
 author: "Kevin A. Ryan"
 date: "Monday, July 20, 2015"
 output:
+  word_document: default
   html_document:
     fig_caption: yes
     highlight: kate
     theme: cerulean
 ---
 
-make a slidify version to demonstrate the capability!!!
 
 ***why reproducible research***
-
-_First line_  
-Second line  
 
 What reproducible reporting is about is a validation of the data analysis. Because you're not collecting independent data using independent methods, it's a little bit more difficult to validate the scientific question itself. But if you can take someone's data and reproduce their findings, then you can, in some sense, validate the data analysis. *This involves having the data and the code because more likely than not, the analysis will have been done on the computer using some sort of programming language, like R.* So you can take their code and their data and reproduce the findings that they come up with. Then you can at least have confidence that the analysis was done appropriately and that the correct methods were used.
 

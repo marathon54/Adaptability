@@ -1,0 +1,16 @@
+---
+title: "Untitled"
+author: "Kevin A. Ryan (JHUAPL)"
+date: "Friday, October 16, 2015"
+output: html_document
+---
+
+
+Data Type         | Data Source                                     | Outcome/Importance
+----------------- | ------------------------------------------------|---------------------------
+Demographic Data  | Basic self-reported demographic characteristics | Characterize the sample
+Behavioral Assessments  | Positive/Negative Affect Schedule (PANAS) Short Stress State Questionnaire (SSSQ) State Trait Anxiety Inventory (STAI) Profile of Mood States (POMS) Dispositional Resilience Scale (DRS) | Measure stress, anxiety, mood, and resilience disposition 
+Executive Function Tests| Iowa Gambling Test; N-Back; Eriksen Flanker  | Tests decision making ability, cognitive flexibility, working memory, and response inhibition
+Performance | Written responses to military test tasks  | Adaptability to consistent and inconsistent stimuli in a military context
+Psychophysiological | Electrocardiography (ECG); Galvanic Skin Response (GSR); Cortisol/??-Amylase | Measure increased and decreased stress, as both an immediate response, and over the study period
+Self-reports  | Written responses after completion of military test tasks | Individual's perceived effectiveness, focus and confidence on the adaptability tasks

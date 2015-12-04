@@ -3,6 +3,7 @@ title: "Adaptability Study - Overview of Data Analysis"
 author: "Kevin A. Ryan"
 date: "Monday, July 20, 2015"
 output:
+  word_document: default
   html_document:
     fig_caption: yes
     highlight: kate
@@ -137,8 +138,8 @@ The primary objective of the analysis is to determine objective metrics of adapt
 
 The Code below reads in the lookup table from above and the design matrix. This does not need to be run for each participant. 
 ```{r}
-EF_lookup <- read.csv("C:/Users/ryanka1/Desktop/adaptability Data/EF_lookup.csv")
-EF_Design_Matrix<-read.csv("C:/Users/ryanka1/Desktop/adaptability Data/EF_Design_Matrix.csv")
+#EF_lookup <- read.csv("C:/Users/ryanka1/Desktop/adaptability Data/EF_lookup.csv")
+#EF_Design_Matrix<-read.csv("C:/Users/ryanka1/Desktop/adaptability Data/EF_Design_Matrix.csv")
 ```
 
 The following steps are required to load in a NEW data set.  The code that follows will automatically pull in data on: Demographics, Behavioral Assessments, Executive Function Tests, Performance on Adaptive Tasks, Psychophysiological traits, and Self-reports.  First, enter in the Participant ID. 
@@ -152,7 +153,7 @@ For each participant ID, the code will pull in all Demographic data collected in
 ```
 
 For each participant ID, the code below will pull in all data collected from Behavioral Assessments. 
-```{r, echo= FALSE}
+```{r, echo= FALSE, eval=FALSE}
 FilePath<-file.path("//aplfsfrontier.dom1.jhuapl.edu/Projects/AWG/Adaptability/Data/Experiment Results", ParticipantID, "ba.csv" )
 ba <- read.csv(FilePath)
 #Code for ----->the Short Stress State Questionnaire (SSSQ)
@@ -168,7 +169,7 @@ DRS<-ba[ ,c(1, 21:24)]
 ```
 
 For each participant ID, the code will pull in all data on the Executive Function Tests
-```{r}
+```{r eval=FALSE}
 #Code  for ----->Erickson Flanker 
 FilePath<-file.path("//aplfsfrontier.dom1.jhuapl.edu/Projects/AWG/Adaptability/Data/Experiment Results", ParticipantID, "EF.csv" )
 EF <- read.csv(FilePath)
@@ -220,7 +221,7 @@ For each participant ID, the code below will pull in all Psychophysiological dat
 
 3. **Verify Rows and Columns**. At this point in the data analysis process, the JHUAPL study team will need to verify that the file named on the network drive actually contains data.   The `dim` function in R will allow the JHUAPL team to peek into the data file to ensure the number of columns and rows of data matches the analyst's expectations. The JHUAPL team believes, and Peng (2015) concurs, that steps should be put in place to identify errors throughout the exploratory data analysis process.   
 How many rows and how many columns in the vector 'EF2?'
-```{r}
+```{r eval=FALSE }
 dim(EF3) #first number in the vector is the number of rows in the vector `EF1` the second is the number of columns. 
 dim(SSSQ)
 dim(STAI)
@@ -232,7 +233,7 @@ dim(nBack1)
 4. **Run str()**. JHUAPL will next run the `str()` function on the dataset. This is usually a safe operation in the sense that even with a very large dataset, running str() shouldn't take too long.The output for str() duplicates some information that we already have, like the number of rows and columns. More importantly, it will allow JHUAPL the ability to examine the classes of each of the columns to make sure they are correctly specified (i.e. numbers are numeric and strings are character, etc.). 
 
 Reorder columns and summarize at a high level. what does this data vector look like?  
-```{r}
+```{r eval=FALSE}
 EF4<-EF3[ ,c(9,5,4,6,7,14,16 )]
 str(EF4)
 str(nBack1)
@@ -240,7 +241,7 @@ str(nBack1)
 5. **Conduct Initial Inspection of the Data**. The JHUAPL team will look at the "beginning" and "end" of a dataset to ensure the data has been read in correctly,   the data are properly formatted, and all expected data is in the file.  For time time series data, JHUAPL will make sure the dates at the beginning and end of the dataset match expectations. 
 
 Review of Erickson Flanker for current participant:
-```{r}
+```{r eval=FALSE}
 #Experiment Name: ef = Erickson Flanker, 
 head(EF4)
 tail (EF4)
@@ -252,7 +253,7 @@ head(DRS)
 
 7. **Validate with external data source**. 
 Making sure your data matches something outside of the dataset is very important. It will allow the JHUAPL team to ensure that the measurements are roughly in line with what they should be and it serves as a check on what other things might be wrong in the adaptability dataset. To do this, the JHAPL analyst will open the excel spreadsheet containing the raw data from Eprime and spot check the numbers there against numbers in R.  
-```{r}
+```{r eval=FALSE}
 EF4[22,5] #compare the value in row 22, column 4 of the EF2 data vector against the Excel raw file
 EF4[447,3] #compare the value in row 447, column 3 of the EF2 data vector against the Excel raw file
 ```
@@ -268,11 +269,11 @@ library(RColorBrewer)
 library(ggplot2)
 ```
 
-```{r}
+```{r eval=FALSE}
 summary(EF4)
 ```
 Is there an impact of Trial Type (consistent or inconsistent)
-```{r}
+```{r eval=FALSE}
 library(dplyr)
 library(ggplot2)
 EF5<-filter(EF4, ReactionTime > 0) #filter out those trials where reaction time = 0
